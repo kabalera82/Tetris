@@ -1,23 +1,27 @@
 package kabaDev;
 
 
+
+
 import javax.swing.JFrame;
 
 
 
 public class Main {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Tetris");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        JFrame window = new JFrame("Simple Tetris");
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
 
         //Add GamePanel to the frame
         GamePanel gp = new GamePanel();
-        frame.add(gp);
-        frame.pack();
+        window.add(gp);
+        window.pack();
 
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        window.setLocationRelativeTo(null); // Center the window on the screen
+        window.setVisible(true);
+
+        gp.launchGame();
 
     }
 }
