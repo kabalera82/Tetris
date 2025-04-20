@@ -25,47 +25,48 @@ public class Mino_Z1 extends Mino{
     }
 
     @Override
-    public void getDirection1() {
-        //  o
-        //  o  o
-        //     o
+public void getDirection1() {
+    // Dirección 1: Horizontal
+    //  o
+    //  o  o
+    //     o
+    tempB[0].x = b[0].x;
+    tempB[0].y = b[0].y;
+    tempB[1].x = b[0].x;
+    tempB[1].y = b[0].y - Block.SIZE;
+    tempB[2].x = b[0].x + Block.SIZE;
+    tempB[2].y = b[0].y;
+    tempB[3].x = b[0].x + Block.SIZE;
+    tempB[3].y = b[0].y + Block.SIZE;
 
-        tempB[0].x = b[0].x;
-        tempB[0].y = b[0].y;
-        tempB[1].x = b[0].x;
-        tempB[1].y = b[0].y - Block.SIZE;
-        tempB[2].x = b[0].x + Block.SIZE;
-        tempB[2].y = b[0].y;
-        tempB[3].x = b[0].x + Block.SIZE;
-        tempB[3].y = b[0].y + Block.SIZE;
+    super.updateXY(1);
+}
 
-        super.updateXY(1);
-    }
+@Override
+public void getDirection2() {
+    // Dirección 2: Vertical
+    //     o  o
+    //  o  o
+    tempB[0].x = b[0].x;
+    tempB[0].y = b[0].y;
+    tempB[1].x = b[0].x - Block.SIZE;
+    tempB[1].y = b[0].y;
+    tempB[2].x = b[0].x;
+    tempB[2].y = b[0].y - Block.SIZE;
+    tempB[3].x = b[0].x + Block.SIZE;
+    tempB[3].y = b[0].y - Block.SIZE;
 
-    @Override
-    public void getDirection2() {
-        //     o  o
-        //  o  o
-        //
-        tempB[0].x = b[0].x;
-        tempB[0].y = b[0].y;
-        tempB[1].x = b[0].x - Block.SIZE;
-        tempB[1].y = b[0].y;
-        tempB[2].x = b[0].x;
-        tempB[2].y = b[0].y - Block.SIZE;
-        tempB[3].x = b[0].x + Block.SIZE;
-        tempB[3].y = b[0].y - Block.SIZE;
-
-        super.updateXY(2);
-    }
-
+    super.updateXY(2);
+}
     @Override
     public void getDirection3() {
-        super.getDirection2();
+        // Igual a Dirección 1 (Horizontal)
+        getDirection1();
     }
-
+    
     @Override
     public void getDirection4() {
-        super.getDirection1();
+        // Igual a Dirección 2 (Vertical)
+        getDirection2();
     }
 }

@@ -42,9 +42,9 @@ public class Mino_L1 extends Mino {
     @Override
     public void getDirection2() {
         // Dirección 2: Horizontal
-        // o o
-        //   o
-        //   o
+        // o
+        // o o o
+        //   
         tempB[0].x = b[0].x;
         tempB[0].y = b[0].y;
         tempB[1].x = b[0].x + Block.SIZE;
@@ -60,8 +60,9 @@ public class Mino_L1 extends Mino {
     @Override
     public void getDirection3() {
         // Dirección 3: Vertical invertida
-        //     o
-        // o o o 
+        //           o  
+        //           o
+        //         o o
         //
         tempB[0].x = b[0].x;
         tempB[0].y = b[0].y;
@@ -78,18 +79,18 @@ public class Mino_L1 extends Mino {
     @Override
     public void getDirection4() {
         // Dirección 4: Horizontal invertida
-        //     o
+        //    
         // o o o
-        //
+        //     o
         tempB[0].x = b[0].x;
         tempB[0].y = b[0].y;
         tempB[1].x = b[0].x - Block.SIZE;
         tempB[1].y = b[0].y;
         tempB[2].x = b[0].x + Block.SIZE;
         tempB[2].y = b[0].y;
-        tempB[3].x = b[0].x - Block.SIZE;
+        tempB[3].x = b[0].x + Block.SIZE;
         tempB[3].y = b[0].y - Block.SIZE;
-
+    
         super.updateXY(4);
     }
 

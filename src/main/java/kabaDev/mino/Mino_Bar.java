@@ -53,17 +53,17 @@ public class Mino_Bar extends Mino {
         tempB[2].x = b[0].x;
         tempB[2].y = b[0].y + Block.SIZE;
         tempB[3].x = b[0].x;
-        tempB[3].y = b[0].y + (Block.SIZE)*2;
+        tempB[3].y = b[0].y + Block.SIZE*2;
 
         super.updateXY(2);
     }
     @Override
     public void getDirection3(){
-        getDirection2();
+        getDirection1();
     }
 
     @Override
     public void getDirection4() {
-        getDirection1();
+        getDirection2();
     }
 }

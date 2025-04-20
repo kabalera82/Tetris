@@ -8,8 +8,8 @@ public class Mino_L2 extends Mino {
         super.create(Color.blue);
     }
 
-
     //Constructor del mino l2
+
     public void setXY(int x, int y){
 
         b[0].x = x;
@@ -30,15 +30,16 @@ public class Mino_L2 extends Mino {
         //  o o     b1 b0
         tempB[0].x = b[0].x;
         tempB[0].y = b[0].y;
-        tempB[1].x = b[0].x;
-        tempB[1].y = b[0].y + Block.SIZE;
+        tempB[1].x = b[0].x - Block.SIZE; // Se desplaza en el eje X negativo
+        tempB[1].y = b[0].y;
         tempB[2].x = b[0].x;
         tempB[2].y = b[0].y + Block.SIZE;
         tempB[3].x = b[0].x - Block.SIZE;
         tempB[3].y = b[0].y + Block.SIZE;
-
+    
         super.updateXY(1);
     }
+    
     @Override
     public void getDirection2() {
         // Dirección 2: Horizontal
@@ -47,16 +48,16 @@ public class Mino_L2 extends Mino {
         //
         tempB[0].x = b[0].x;
         tempB[0].y = b[0].y;
-        tempB[1].x = b[0].x + Block.SIZE;
-        tempB[1].y = b[0].y;
+        tempB[1].x = b[0].x - Block.SIZE;
+        tempB[1].y = b[0].y + Block.SIZE;
         tempB[2].x = b[0].x - Block.SIZE;
-        tempB[2].y = b[0].y;
-        tempB[3].x = b[0].x - Block.SIZE;
-        tempB[3].y = b[0].y - Block.SIZE;
-
+        tempB[2].y = b[0].y + Block.SIZE;
+        tempB[3].x = b[0].x + Block.SIZE;
+        tempB[3].y = b[0].y + Block.SIZE;
+    
         super.updateXY(2);
     }
-
+    
     @Override
     public void getDirection3() {
         // Dirección 3: Vertical invertida
@@ -71,10 +72,10 @@ public class Mino_L2 extends Mino {
         tempB[2].y = b[0].y - Block.SIZE;
         tempB[3].x = b[0].x + Block.SIZE;
         tempB[3].y = b[0].y - Block.SIZE;
-
+    
         super.updateXY(3);
     }
-
+    
     @Override
     public void getDirection4() {
         // Dirección 4: Horizontal invertida
@@ -83,11 +84,11 @@ public class Mino_L2 extends Mino {
         //
         tempB[0].x = b[0].x;
         tempB[0].y = b[0].y;
-        tempB[1].x = b[0].x - Block.SIZE;
+        tempB[1].x = b[0].x + Block.SIZE;
         tempB[1].y = b[0].y;
-        tempB[2].x = b[0].x + Block.SIZE;
+        tempB[2].x = b[0].x - Block.SIZE;
         tempB[2].y = b[0].y;
-        tempB[3].x = b[0].x + Block.SIZE;
+        tempB[3].x = b[0].x - Block.SIZE;
         tempB[3].y = b[0].y + Block.SIZE;
     
         super.updateXY(4);
