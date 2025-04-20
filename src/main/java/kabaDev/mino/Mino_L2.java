@@ -5,10 +5,11 @@ import java.awt.Color;
 public class Mino_L2 extends Mino {
 
     public Mino_L2() {
-        create(Color.cyan);
+        super.create(Color.blue);
     }
 
-    @Override
+
+    //Constructor del mino l2
     public void setXY(int x, int y){
 
         b[0].x = x;
@@ -17,7 +18,7 @@ public class Mino_L2 extends Mino {
         b[1].y = b[0].y - Block.SIZE;
         b[2].x = b[0].x;
         b[2].y = b[0].y + Block.SIZE;
-        b[3].x = b[0].x + Block.SIZE;
+        b[3].x = b[0].x - Block.SIZE;
         b[3].y = b[0].y + Block.SIZE;
     }
 
@@ -32,17 +33,18 @@ public class Mino_L2 extends Mino {
         tempB[1].x = b[0].x;
         tempB[1].y = b[0].y + Block.SIZE;
         tempB[2].x = b[0].x;
-        tempB[2].y = b[0].y - Block.SIZE;
+        tempB[2].y = b[0].y + Block.SIZE;
         tempB[3].x = b[0].x - Block.SIZE;
-        tempB[3].y = b[0].y - Block.SIZE;
-        updateXY(1);
+        tempB[3].y = b[0].y + Block.SIZE;
+
+        super.updateXY(1);
     }
     @Override
     public void getDirection2() {
         // Dirección 2: Horizontal
-        // o o
-        //   o
-        //   o
+        // o
+        // o o o
+        //
         tempB[0].x = b[0].x;
         tempB[0].y = b[0].y;
         tempB[1].x = b[0].x + Block.SIZE;
@@ -50,27 +52,27 @@ public class Mino_L2 extends Mino {
         tempB[2].x = b[0].x - Block.SIZE;
         tempB[2].y = b[0].y;
         tempB[3].x = b[0].x - Block.SIZE;
-        tempB[3].y = b[0].y + Block.SIZE;
+        tempB[3].y = b[0].y - Block.SIZE;
 
-        updateXY(2);
+        super.updateXY(2);
     }
 
     @Override
     public void getDirection3() {
         // Dirección 3: Vertical invertida
-        //     o
-        // o o o 
-        //
+        // o o
+        // o
+        // o
         tempB[0].x = b[0].x;
         tempB[0].y = b[0].y;
         tempB[1].x = b[0].x;
         tempB[1].y = b[0].y + Block.SIZE;
         tempB[2].x = b[0].x;
         tempB[2].y = b[0].y - Block.SIZE;
-        tempB[3].x = b[0].x - Block.SIZE;
+        tempB[3].x = b[0].x + Block.SIZE;
         tempB[3].y = b[0].y - Block.SIZE;
 
-        updateXY(3);
+        super.updateXY(3);
     }
 
     @Override
@@ -85,19 +87,12 @@ public class Mino_L2 extends Mino {
         tempB[1].y = b[0].y;
         tempB[2].x = b[0].x + Block.SIZE;
         tempB[2].y = b[0].y;
-        tempB[3].x = b[0].x - Block.SIZE;
-        tempB[3].y = b[0].y - Block.SIZE;
+        tempB[3].x = b[0].x + Block.SIZE;
+        tempB[3].y = b[0].y + Block.SIZE;
     
-        updateXY(4);
+        super.updateXY(4);
     }
-    @Override
-    public void updateXY(int direction) {
-        // Actualiza las posiciones de los bloques
-        for (int i = 0; i < 4; i++) {
-            b[i].x = tempB[i].x;
-            b[i].y = tempB[i].y;
-        }
-    }
+
     
     
 }

@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 public class Block extends Rectangle {
-
+    public int x, y;
     public static final int SIZE = 30; // Tamaño del bloque
     public Color c;
 
@@ -13,7 +13,7 @@ public class Block extends Rectangle {
         this.c = c;
     }
 
-    public void draw(Graphics2D g2) {
+    public void draw (Graphics2D g2) {
         g2.setColor(c);
         g2.fillRect(x, y, SIZE, SIZE);
     }

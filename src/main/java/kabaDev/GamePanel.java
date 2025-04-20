@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements Runnable {
     public GamePanel() {
         // Panel Settings
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        this.setBackground(Color.black);
+        this.setBackground(Color.gray);
         this.setLayout(null);
         // Implement KeyListener
         this.addKeyListener(new KeyHandler());
@@ -63,7 +63,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) { // Anotación @Override agregada
         super.paintComponent(g);
         // Lógica de renderizado del juego
-        Graphics2D g2 = (Graphics2D) g; // Cast a Graphics2D
+        Graphics2D g2 = (Graphics2D) g; // Casteo a Graphics2D
         pm.draw(g2); // Llamada al método draw de PlayManager
     }
 }

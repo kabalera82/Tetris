@@ -5,7 +5,7 @@ import java.awt.Color;
 public class Mino_L1 extends Mino {
 
     public Mino_L1() {
-        create(Color.orange);
+        super.create(Color.orange);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Mino_L1 extends Mino {
         tempB[3].x = b[0].x + Block.SIZE;
         tempB[3].y = b[0].y + Block.SIZE;
 
-        updateXY(1);
+        super.updateXY(1);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Mino_L1 extends Mino {
         tempB[3].x = b[0].x - Block.SIZE;
         tempB[3].y = b[0].y + Block.SIZE;
 
-        updateXY(2);
+        super.updateXY(2);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Mino_L1 extends Mino {
         tempB[3].x = b[0].x - Block.SIZE;
         tempB[3].y = b[0].y - Block.SIZE;
 
-        updateXY(3);
+        super.updateXY(3);
     }
 
     @Override
@@ -89,16 +89,9 @@ public class Mino_L1 extends Mino {
         tempB[2].y = b[0].y;
         tempB[3].x = b[0].x - Block.SIZE;
         tempB[3].y = b[0].y - Block.SIZE;
-    
-        updateXY(4);
+
+        super.updateXY(4);
     }
 
-    @Override
-    public void updateXY(int direction) {
-        // Actualiza las posiciones de los bloques
-        for (int i = 0; i < 4; i++) {
-            b[i].x = tempB[i].x;
-            b[i].y = tempB[i].y;
-        }
-    }
+
 }
