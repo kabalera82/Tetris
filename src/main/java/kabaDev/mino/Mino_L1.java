@@ -1,6 +1,6 @@
 package kabaDev.mino;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class Mino_L1 extends Mino {
 
@@ -10,7 +10,7 @@ public class Mino_L1 extends Mino {
 
     @Override
     public void setXY(int x, int y) {
-      
+
         b[0].x = x;
         b[0].y = y;
         b[1].x = b[0].x;
@@ -90,7 +90,7 @@ public class Mino_L1 extends Mino {
         tempB[2].y = b[0].y;
         tempB[3].x = b[0].x + Block.SIZE;
         tempB[3].y = b[0].y - Block.SIZE;
-    
+
         super.updateXY(4);
     }
 
