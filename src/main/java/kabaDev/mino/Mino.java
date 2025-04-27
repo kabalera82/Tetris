@@ -13,6 +13,8 @@ public class Mino {
     int autoDropCounter = 0; // Variable para el autoDrop
     boolean leftCollision, rigthCollision, bottomCollision;
     public boolean active = true;
+    public boolean  deactivating;
+    int deactivateCounter = 0;
 
     public void create(Color c) {
         b[0] = new Block(c);
@@ -63,6 +65,9 @@ public class Mino {
         rigthCollision = false;
         bottomCollision = false;
 
+        //check static block collision
+        checkStaticBlockCollision();
+
         // Check frame collision
         //left wall
         for (int i = 0; i < b.length; i++) {
@@ -94,6 +99,9 @@ public class Mino {
         rigthCollision = false;
         bottomCollision = false;
 
+        //Check static block collision
+        checkStaticBlockCollision();
+
         // Check frame collision
         //left wall
         for (int i = 0; i < b.length; i++) {
@@ -113,11 +121,41 @@ public class Mino {
         for (int i = 0; i < b.length; i++) {
             if (tempB[i].y + Block.SIZE > PlayManager.bottom_y) {
                 bottomCollision = true;
+                break;
             }
         }
-        active = false;
     }
+
+    private void checkStaticBlockCollision() {
+
+        for (int i = 0; i < PlayManager.staticBlocks.size(); i++) {
+            int targetX = PlayManager.staticBlocks.get(i).x;
+            int targetY = PlayManager.staticBlocks.get(i).y;
+
+            //check down
+            for (int ii = 0; ii < b.length; ii++) {
+                if (b[ii].y + Block.SIZE == targetY && b[ii].x == targetX) {
+                    bottomCollision = true;
+                }
+            }
+            // check left
+            for (int ii = 0; ii < b.length; ii++) {
+                if (b[ii].x - Block.SIZE == targetX && b[ii].y == targetY) {
+                    leftCollision = true;
+                }
+            }
+            for (int ii = 0; ii < b.length; ii++) {
+                if (b[ii].x + Block.SIZE == targetX && b[ii].y == targetY) {
+                    rigthCollision = true;
+                }
+            }
+        }
+    }
+
     public void update() {
+        if(deactivating){
+            deactivating();
+        }
         // Movimiento del mino
         if (KeyHandler.upPressed) {
             // Cambiar la dirección y rotar
@@ -166,7 +204,7 @@ public class Mino {
         }
 
         if (bottomCollision) {
-            active = false;
+            deactivating = true;
         } else {
             // Auto-drop
             autoDropCounter++;
@@ -181,7 +219,19 @@ public class Mino {
         }
 
     }
+    private void deactivating (){
+        deactivateCounter++;
+        //wait 45 frames until deactivate
+        if(deactivateCounter == 45){
+            deactivateCounter = 0;
+            checkMovementCollision();//cheakea si esta pulsado el botomo
 
+            //Si el botom esta pulsado despues de 45 frames
+            if(bottomCollision){
+                active = false;
+            }
+        }
+    }
     public void draw(Graphics2D g2) {
         int margin = 2;
         g2.setColor(b[0].c);
