@@ -2,15 +2,16 @@ package kabaDev.mino;
 
 import java.awt.*;
 
-public class Mino_Square extends Mino{
+public class Mino_Square extends Mino {
 
-    public Mino_Square(){
+    public Mino_Square() {
         create(Color.yellow);
     }
+
     public void setXY(int x, int y) {
-         // o o
-         // o o
-         //
+        // o o
+        // o o
+        //
 
         b[0].x = x;
         b[0].y = y;
@@ -23,14 +24,18 @@ public class Mino_Square extends Mino{
     }
 
     @Override
-    public void getDirection1() {}
+    public void getDirection1() {
+    }
 
     @Override
-    public void getDirection2() {}
+    public void getDirection2() {
+    }
 
     @Override
-    public void getDirection3() {}
+    public void getDirection3() {
+    }
 
     @Override
-    public void getDirection4() {}
+    public void getDirection4() {
+    }
 }

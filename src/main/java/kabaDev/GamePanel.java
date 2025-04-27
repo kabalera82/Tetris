@@ -1,16 +1,12 @@
 package kabaDev;
 
-import javax.swing.JPanel;
-
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics; 
-import java.awt.Graphics2D;
+import javax.swing.*;
+import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
     public static final int WIDTH = 1280; // Width de la ventana del juego
-    public static final int HEIGHT = 720; // Height de la ventana del juego
+    public static final int HEIGHT = 780; // Height de la ventana del juego
     // Frames por segundo (FPS)
     final int FPS = 60; // Velocidad de actualización del juego (frames por segundo)
     Thread gameThread; // Hilo del juego
@@ -56,7 +52,9 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     private void update() {
-       pm.update();
+        if (!KeyHandler.pausePressed) {
+            pm.update();
+        }
     }
 
     @Override

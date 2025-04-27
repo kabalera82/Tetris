@@ -1,6 +1,6 @@
 package kabaDev.mino;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class Mino_Z2 extends Mino {
 
@@ -13,7 +13,7 @@ public class Mino_Z2 extends Mino {
         // Dirección inicial (Horizontal)
         //   o  o
         //      o  o
-     
+
         b[0].x = x;
         b[0].y = y;
         b[1].x = b[0].x - Block.SIZE;
@@ -37,10 +37,10 @@ public class Mino_Z2 extends Mino {
         tempB[2].y = b[0].y + Block.SIZE;
         tempB[3].x = b[0].x + Block.SIZE; // b[3] está en la diagonal inferior derecha de b[0]
         tempB[3].y = b[0].y + Block.SIZE;
-    
+
         super.updateXY(1);
     }
-    
+
     @Override
     public void getDirection2() {
         // Dirección 2: Vertical
@@ -55,7 +55,7 @@ public class Mino_Z2 extends Mino {
         tempB[2].y = b[0].y;
         tempB[3].x = b[0].x + Block.SIZE;
         tempB[3].y = b[0].y - Block.SIZE;
-    
+
         super.updateXY(2);
     }
 

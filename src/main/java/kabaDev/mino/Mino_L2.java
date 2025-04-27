@@ -1,6 +1,6 @@
 package kabaDev.mino;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class Mino_L2 extends Mino {
 

@@ -1,39 +1,25 @@
 package kabaDev;
 
-import java.awt.BasicStroke;
-import java.awt.Graphics2D;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.RenderingHints;
-import java.util.Random;
+import kabaDev.mino.*;
 
-import kabaDev.mino.Mino;
-import kabaDev.mino.Block;
-import kabaDev.mino.Mino_L1;
-import kabaDev.mino.Mino_L2;
-import kabaDev.mino.Mino_Bar;
-import kabaDev.mino.Mino_T;
-import kabaDev.mino.Mino_Z1;
-import kabaDev.mino.Mino_Z2;
-import kabaDev.mino.Mino_Square;
+import java.awt.*;
+import java.util.Random;
 
 public class PlayManager {
 
-    //Main Play Area
-    final int WIDTH = 360;
-    final int HEIGHT = 640;
     public static int left_x;
     public static int right_x;
     public static int top_y;
     public static int bottom_y;
-
-    //Mino
-    Mino currentMino;
-    final int MINO_START_X;
-    final int MINO_START_Y;
-
     //Others
     public static int dropInterval = 60; // mino drops in every 60 frames
+    //Main Play Area
+    final int WIDTH = 360;
+    final int HEIGHT = 690;
+    final int MINO_START_X;
+    final int MINO_START_Y;
+    //Mino
+    Mino currentMino;
 
 
     public PlayManager() {
@@ -109,6 +95,14 @@ public class PlayManager {
             currentMino.draw(g2);
         }
 
+        //Draw Pause
+        g2.setColor(Color.yellow);
+        g2.setFont(g2.getFont().deriveFont(50f));
+        if (KeyHandler.pausePressed) {
+            x = left_x + 70;
+            y = top_y + 320;
+            g2.drawString("PAUSED", x, y);
+        }
 
     }
 
