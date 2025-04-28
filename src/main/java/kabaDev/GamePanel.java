@@ -1,5 +1,7 @@
 package kabaDev;
 
+import kabaDev.sound.Sound;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,6 +13,8 @@ public class GamePanel extends JPanel implements Runnable {
     final int FPS = 60; // Velocidad de actualización del juego (frames por segundo)
     Thread gameThread; // Hilo del juego
     PlayManager pm; // Instancia de la clase PlayManager
+    public static Sound music = new Sound();//Objetos para audio estáticos
+    public static Sound se = new Sound(); //static Sound Objects
 
     // Constructor de la clase GamePanel
     public GamePanel() {
@@ -28,6 +32,10 @@ public class GamePanel extends JPanel implements Runnable {
     public void launchGame() {
         gameThread = new Thread(this);
         gameThread.start();
+
+        //music is boolean
+        music.play(0, true);
+        music.loop();
     }
 
     @Override
@@ -52,7 +60,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     private void update() {
-        if (!KeyHandler.pausePressed) {
+        //Si presionamos pausamos y si se Game Over false pausamos
+        if (!KeyHandler.pausePressed && !pm.gameOver) {
             pm.update();
         }
     }

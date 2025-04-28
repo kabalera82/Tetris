@@ -1,5 +1,6 @@
 package kabaDev.mino;
 
+import kabaDev.GamePanel;
 import kabaDev.KeyHandler;
 import kabaDev.PlayManager;
 
@@ -156,22 +157,17 @@ public class Mino {
         if(deactivating){
             deactivating();
         }
+
         // Movimiento del mino
         if (KeyHandler.upPressed) {
-            // Cambiar la dirección y rotar
-            direction++;
-            if (direction > 4) {
-                direction = 1; // Volver a la dirección 1 si supera 4
-            }
-
             switch (direction) {
-                case 1 -> getDirection1();
-                case 2 -> getDirection2();
-                case 3 -> getDirection3();
-                case 4 -> getDirection4();
+                case 1: getDirection2(); break;
+                case 2: getDirection3(); break;
+                case 3: getDirection4(); break;
+                case 4: getDirection1(); break;
             }
-
             KeyHandler.upPressed = false; // Reiniciar la variable después de procesar
+            GamePanel.se.play(2,false);
         }
         checkMovementCollision();
 
@@ -204,6 +200,9 @@ public class Mino {
         }
 
         if (bottomCollision) {
+            if(deactivating == false){
+                GamePanel.se.play(3,false);
+            }
             deactivating = true;
         } else {
             // Auto-drop

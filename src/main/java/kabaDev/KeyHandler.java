@@ -27,7 +27,15 @@ public class KeyHandler implements KeyListener {
             rightPressed = true;
         }
         if (code == KeyEvent.VK_SPACE) {
-            pausePressed = !pausePressed;
+            if(pausePressed){
+                pausePressed = false;
+            }
+            else {
+                pausePressed = true;
+                GamePanel.music.stop();
+                GamePanel.music.loop();
+            }
+
 
         }
     }
