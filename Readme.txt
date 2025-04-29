@@ -79,6 +79,6 @@ Made with ❤️ by **Marcos Padilla**
 
 Happy coding and may your tetrominoes fall in your favor! 🌟
 
-Special thank to the Tutorial Guide of RyiSnow
+Special thanks to the Tutorial Guide of RyiSnow
 
 https://www.youtube.com/watch?v=N1ktYfszqnM
