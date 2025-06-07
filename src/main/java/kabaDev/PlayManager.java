@@ -203,7 +203,7 @@ public class PlayManager {
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2.drawString("Next", x + 60, y + 60);//AQUI SE DIBUJA EL TEXTO "NEXT"
 
-        //Draw Score Freme
+        //Draw Score Frame
         g2.drawRect(x, top_y, 250, 300);
         x += 40;
         y = top_y + 90;
